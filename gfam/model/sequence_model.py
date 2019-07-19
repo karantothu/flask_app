@@ -1,3 +1,6 @@
+from gfam import db
+
+
 class SequencesModel(object):
     version = None
     sequence_id = None
@@ -29,3 +32,8 @@ class Sequence:
 
 
 
+class Sequence1(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sequence_name = db.Column(db.String(80), unique=True)
+    sequence = db.Column(db.String(50))
+    version = db.Column(db.String(80))
