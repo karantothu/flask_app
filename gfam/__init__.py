@@ -1,12 +1,11 @@
-from flask import Flask, redirect, url_for
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from gfam import config
 
-gfam_api= Flask(__name__)
+gfam_api = Flask(__name__)
+gfam_api.config.from_object(config.Config)
 db = SQLAlchemy(gfam_api)
 
 from gfam.routes.route import mod
-from gfam.routes.route1 import mod1
-
-gfam_api.register_blueprint(mod, url_prefix='/api/v1.0')
-gfam_api.register_blueprint(mod1, url_prefix='/api/v1.1')
+gfam_api.register_blueprint(mod)
 

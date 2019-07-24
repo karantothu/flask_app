@@ -1,10 +1,4 @@
-from gfam import gfam_api
-
-
-gfam_api.config['DEBUG'] = True
-gfam_api.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gfam/sequences.db'
-
-
-class SequenceConfig:
-    filename = 'gfam/data.json'
-
+class Config(object):
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:password@localhost:3306/gfam'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    DEBUG = True
